@@ -4,11 +4,11 @@ import { BrowserRouter } from 'react-router-dom';
 import 'popper.js'
 
 import '../assets/js/plugins/perfect-scrollbar.jquery.min.js'
-import '../assets/js/plugins/chartist.min.js'
-import '../assets/js/material-dashboard.min.js'
+// import '../assets/js/plugins/chartist.min.js'
 import '../assets/js/init-chart.js'
 import '../assets/js/plugins/bootstrap-notify.js'
 import '../assets/js/plugins/arrive.min.js'
+import '../assets/js/material-dashboard.min.js'
 import '../assets/js/core/bootstrap-material-design.min.js'
 // import '../assets/js/plugins/moment.min.js'
 import '../assets/js/plugins/sweetalert2.js'
