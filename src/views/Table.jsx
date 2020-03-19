@@ -1,9 +1,21 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
-const Table = () => {
+import Form from '../components/User/Form.jsx';
+
+const mapStateToProps = state => {
+    return { users: state.users };
+}
+
+const ConnectedTable = ({ users }) => {
     return (
         <div className="content">
             <div className="container-fluid">
+                <div className = "row">
+                    <div className="col-md-12">
+                        <Form />
+                    </div>
+                </div>
                 <div className="row">
                     <div className="col-md-12">
                         <div className="card">
@@ -34,6 +46,17 @@ const Table = () => {
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            {
+                                                users.map(( val, idx) => (
+                                                    <tr key={idx}>
+                                                        <td>{val.no}</td>
+                                                        <td>{val.name}</td>
+                                                        <td>{val.country}</td>
+                                                        <td>{val.city}</td>
+                                                        <td>{val.salary}</td>
+                                                    </tr>
+                                                ))
+                                            }
                                             <tr>
                                                 <td>
                                                     1
@@ -49,91 +72,6 @@ const Table = () => {
                           </td>
                                                 <td className="text-primary">
                                                     $36,738
-                          </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    2
-                          </td>
-                                                <td>
-                                                    Minerva Hooper
-                          </td>
-                                                <td>
-                                                    Curaçao
-                          </td>
-                                                <td>
-                                                    Sinaai-Waas
-                          </td>
-                                                <td className="text-primary">
-                                                    $23,789
-                          </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    3
-                          </td>
-                                                <td>
-                                                    Sage Rodriguez
-                          </td>
-                                                <td>
-                                                    Netherlands
-                          </td>
-                                                <td>
-                                                    Baileux
-                          </td>
-                                                <td className="text-primary">
-                                                    $56,142
-                          </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    4
-                          </td>
-                                                <td>
-                                                    Philip Chaney
-                          </td>
-                                                <td>
-                                                    Korea, South
-                          </td>
-                                                <td>
-                                                    Overland Park
-                          </td>
-                                                <td className="text-primary">
-                                                    $38,735
-                          </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    5
-                          </td>
-                                                <td>
-                                                    Doris Greene
-                          </td>
-                                                <td>
-                                                    Malawi
-                          </td>
-                                                <td>
-                                                    Feldkirchen in Kärnten
-                          </td>
-                                                <td className="text-primary">
-                                                    $63,542
-                          </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    6
-                          </td>
-                                                <td>
-                                                    Mason Porter
-                          </td>
-                                                <td>
-                                                    Chile
-                          </td>
-                                                <td>
-                                                    Gloucester
-                          </td>
-                                                <td className="text-primary">
-                                                    $78,615
                           </td>
                                             </tr>
                                         </tbody>
@@ -152,23 +90,23 @@ const Table = () => {
                                 <div className="table-responsive">
                                     <table className="table table-hover">
                                         <thead className="">
-                                           <tr>
-                                           <th>
-                                                ID
+                                            <tr>
+                                                <th>
+                                                    ID
                         </th>
-                                            <th>
-                                                Name
+                                                <th>
+                                                    Name
                         </th>
-                                            <th>
-                                                Country
+                                                <th>
+                                                    Country
                         </th>
-                                            <th>
-                                                City
+                                                <th>
+                                                    City
                         </th>
-                                            <th>
-                                                Salary
+                                                <th>
+                                                    Salary
                         </th>
-                                           </tr>
+                                            </tr>
                                         </thead>
                                         <tbody>
                                             <tr>
@@ -284,5 +222,7 @@ const Table = () => {
         </div>
     );
 }
+
+const Table = connect(mapStateToProps)(ConnectedTable);
 
 export default Table;

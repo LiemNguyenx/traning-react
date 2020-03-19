@@ -1,13 +1,13 @@
-import { ADD_ARTICLE } from '../constants/action-type';
+import { ADD_USER } from '../constants/action-type';
 
 const initialState = {
-    articles: []
+    users: []
 };
 
 function rootReducer(state = initialState, action) {
-    if(action.type === ADD_ARTICLE) {
+    if(action.type === ADD_USER) {
         return Object.assign({}, state, {
-            articles: state.articles.concat(action.payload)
+            users: state.users.concat(action.payload)
         });
     }
     return state;

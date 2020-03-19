@@ -1,5 +1,5 @@
-import { ADD_ARTICLE } from '../constants/action-type';
+import { ADD_USER } from '../constants/action-type';
 
-export function addArticle(payload) {
-    return { type: ADD_ARTICLE, payload };
+export function addUser(payload) {
+    return { type: ADD_USER, payload };
 }
